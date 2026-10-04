@@ -22,5 +22,16 @@ document.addEventListener("DOMContentLoaded",function() {
 
        
     });
+
+    element.addEventListener("mouseover", function(){
+
+        element.classList.add("hover");
+    });
+
+    element.addEventListener("mouseleave", function(){
+
+        element.classList.remove("hover");
+
+    });
 }
 });
