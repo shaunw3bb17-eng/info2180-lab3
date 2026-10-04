@@ -23,25 +23,29 @@ document.addEventListener("DOMContentLoaded",function() {
     
     element.addEventListener("click",function(){
 
-    
-        element.textContent = currentPlayer;
-        element.classList.add(currentPlayer);
+        if(element.textContent == ""){
+            element.textContent = currentPlayer;
+            element.classList.add(currentPlayer);
 
-        if (currentPlayer == "X") {
+            if (currentPlayer == "X") {
             currentPlayer = "O";
-        }else{
-            currentPlayer = "X";
-        }
-        for(let combo of winningCombos){
-            if(squares[combo[0]].textContent != "" && 
-                squares[combo[0]].textContent == squares[combo[1]].textContent &&
-                squares[combo[1]].textContent == squares[combo[2]].textContent){
-                    let winner = squares[combo[0]].textContent;
-                    status.textContent = "Congratulations! " + winner + " is the Winner!";
-                    status.classList.add("you-won")
+            }else{
+                currentPlayer = "X";
+            }
+            for(let combo of winningCombos){
+                if(squares[combo[0]].textContent != "" && 
+                    squares[combo[0]].textContent == squares[combo[1]].textContent &&
+                    squares[combo[1]].textContent == squares[combo[2]].textContent){
+                        let winner = squares[combo[0]].textContent;
+                        status.textContent = "Congratulations! " + winner + " is the Winner!";
+                        status.classList.add("you-won")
 
                 }
         }
+        }
+        
+
+        
 
        
     });
